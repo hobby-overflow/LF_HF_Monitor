@@ -1,5 +1,11 @@
 # LF_HF_Monitor
 
+## Dependency module
+- fitbit
+- pandas
+- scipy
+- numpy
+
 ## Need files
 - secret.py
 - token.json
