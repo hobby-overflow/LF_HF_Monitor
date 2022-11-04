@@ -8,10 +8,11 @@ token_dict = literal_eval(tokens)
 access_token = token_dict["access_token"]
 refresh_token = token_dict["refresh_token"]
 
+TOKEN_FILE = "token.json"
 
 def updateToken(token):
     print(token)
-    f = open("token.txt", "w")
+    f = open(TOKEN_FILE, "w")
     f.write(str(token))
     f.close()
     return
