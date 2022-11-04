@@ -10,6 +10,7 @@ refresh_token = token_dict["refresh_token"]
 
 TOKEN_FILE = "token.json"
 
+
 def updateToken(token):
     print(token)
     f = open(TOKEN_FILE, "w")
@@ -20,17 +21,17 @@ def updateToken(token):
 
 def get_heartrate_data():
     client = fitbit.Fitbit(
-            CLIENT_ID,
-            CLIENT_SECRET,
-            access_token=access_token,
-            refresh_token=refresh_token,
-            refresh_cb=updateToken)
+        CLIENT_ID,
+        CLIENT_SECRET,
+        access_token=access_token,
+        refresh_token=refresh_token,
+        refresh_cb=updateToken)
 
     DATE = "2022-10-31"
     data_sec = client.intraday_time_series(
-            "activities/heart",
-            DATE,
-            detail_level="1min")
+        "activities/heart",
+        DATE,
+        detail_level="1min")
 
     heart_sec = data_sec["activities-heart-intraday"]["dataset"]
     heart_df = pd.DataFrame.from_dict(heart_sec)
